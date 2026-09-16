@@ -1,0 +1,27 @@
+name: sberindex-clustering
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - networkx
+  - python-igraph
+  - leidenalg
+  - matplotlib
+  - seaborn
+  - plotly
+  - pyvis
+  - jupyterlab
+  - ipykernel
+  - pyyaml
+  - tqdm
+
+  - pip:
+    - fastdtw
+    - umap-learn
+    - geopandas

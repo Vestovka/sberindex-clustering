@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Виртуальные окружения
+.venv/
+venv/
+env/
+
+# Данные (тяжёлые, не кладём в git)
+# Игнорируем содержимое папок, но не сами папки
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Тяжёлые форматы (на всякий случай)
+*.parquet
+*.csv
+
+# Результаты (можно перегенерировать)
+results/*
+!results/.gitkeep
+
+# Секреты
+.env
+*.key
+
+# Mac
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# DVC
+.dvc/
