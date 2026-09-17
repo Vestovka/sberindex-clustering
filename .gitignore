@@ -34,6 +34,9 @@ results/*
 .env
 *.key
 
+# Внутренние отчёты (только локально)
+WORKLOG.md
+
 # Mac
 .DS_Store
 
