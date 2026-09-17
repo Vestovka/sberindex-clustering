@@ -19,6 +19,7 @@ dependencies:
   - jupyterlab
   - ipykernel
   - pyyaml
+  - pyarrow
   - tqdm
 
   - pip:
