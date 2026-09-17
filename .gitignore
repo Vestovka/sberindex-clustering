@@ -29,6 +29,8 @@ data/processed/*
 # Результаты (можно перегенерировать)
 results/*
 !results/.gitkeep
+!results/eda/
+!results/eda/*.png
 
 # Секреты
 .env
