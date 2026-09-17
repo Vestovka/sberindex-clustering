@@ -31,11 +31,24 @@ def clean_rosstat(df: pd.DataFrame, value_name: str) -> pd.DataFrame:
     df = df[df["indicator_period"] == "Январь-декабрь"].copy()
     df = df[df["year"].isin([2023, 2024])].copy()
 
+    # Убираем мусор
+    df = df[df["oktmo_stable"] != "CD"].copy()
+    # Убираем устаревшие записи вида "... (до ...)"
+    df = df[~df["municipality"].str.contains(r"\(до ", regex=True, na=False)].copy()
+
     # Усредняем по годам для каждого МО
     agg = (
         df.groupby(["oktmo_stable", "region_name", "municipality"], as_index=False)
         .agg(**{value_name: ("indicator_value", "mean")})
     )
+
+    # Устраняем дубликаты по oktmo_stable:
+    # приоритет у названий со словом "округ"
+    agg["_is_okrug"] = agg["municipality"].str.contains("округ", case=False, na=False)
+    agg = agg.sort_values(["oktmo_stable", "_is_okrug"], ascending=[True, False])
+    agg = agg.drop_duplicates("oktmo_stable", keep="first")
+    agg = agg.drop(columns=["_is_okrug"])
+
     return agg
 
 

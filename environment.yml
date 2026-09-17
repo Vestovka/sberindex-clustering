@@ -20,6 +20,7 @@ dependencies:
   - ipykernel
   - pyyaml
   - pyarrow
+  - rapidfuzz
   - tqdm
 
   - pip:
