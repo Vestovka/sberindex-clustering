@@ -31,6 +31,7 @@ results/*
 !results/.gitkeep
 !results/eda/
 !results/eda/*.png
+!results/*.csv
 
 # Секреты
 .env
